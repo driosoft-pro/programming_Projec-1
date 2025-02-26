@@ -96,19 +96,20 @@ El usuario puede elegir entre:
    ```
 3. Ejecuta cada juego con Python:
    ```bash
-   python problema1_batalla_naval.py
+   python batalla_naval.py
    ```
    ```bash
-   python problema2_triqui_memoria.py
+   python triqui.py
+   python memoria.py
    ```
    ```bash
-   python problema3_sudoku.py
+   python sudoku.py
    ```
    ```bash
-   python problema4_blackjack.py
+   python blackjack.py
    ```
    ```bash
-   python problema5_rummy.py
+   python rummy.py
    ```
 
 ## 🛠 Requisitos
