@@ -30,22 +30,6 @@ Diseñar e implementar una versión en Python del juego **Batalla Naval** con la
 - Se indica si el ataque es **acierto o fallo**.
 - Gana quien **hunda los 3 barcos del oponente**.
 
-=== ESTAMOS JUGANDO BATALLA NAVAL ===
-
-  0 1 2 3 4
-0 ❓ ❓ ❓ ❓ ❓
-1 ❓ ❓ ❓ ❓ ❓
-2 ❓ ❓ ❓ ❓ ❓
-3 ❓ ❓ ❓ ❓ ❓
-4 ❓ ❓ ❓ ❓ ❓
-
-🃏 Número de intentos usados: 0
-
-Ingresa la fila para atacar (0-4): 0
-Ingresa la columna para atacar (0-4): 0
-¡Impacto! Hundiste un barco enemigo.
-
-
 ### **Problema 2: Triqui y Juego de Memoria** ❌⭕🃏
 El usuario puede elegir entre:
 - **Triqui (Tic-Tac-Toe):**
@@ -101,7 +85,7 @@ El usuario puede elegir entre:
 └── pseudocodigo.md # Pseudocódigo del problema 5
 ```
 ======================================================================
-## ==============================JUEGOS==============================
+## =====================JUEGOS =====================
 ======================================================================
 ```
 === ESTAMOS JUGANDO BATALLA NAVAL ===
@@ -124,8 +108,9 @@ El usuario puede elegir entre:
 🃏 Número de intentos usados: 0
 
 Ingresa la fila para atacar (0-4):
+```
 ======================================================================
-
+```
 === ESTAMOS JUGANDO TRIQUI ===
 
 ===== REGLAS DE TRIQUI =====
