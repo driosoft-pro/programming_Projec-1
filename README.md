@@ -251,6 +251,8 @@ Opción:
    ```
    ```bash
    python triqui.py
+   ```
+   ```bash
    python memoria.py
    ```
    ```bash
