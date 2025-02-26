@@ -88,11 +88,11 @@ El usuario puede elegir entre:
 ## 🚀 Cómo Ejecutar los Juegos
 1. Clona este repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/nombre-del-repositorio.git
+   git clone https://github.com/driosoft-pro/programming_Projec-1.git
    ```
 2. Navega al directorio del proyecto:
    ```bash
-   cd nombre-del-repositorio
+   cd programming_Projec-1
    ```
 3. Ejecuta cada juego con Python:
    ```bash
