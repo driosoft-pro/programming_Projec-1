@@ -30,6 +30,22 @@ Diseñar e implementar una versión en Python del juego **Batalla Naval** con la
 - Se indica si el ataque es **acierto o fallo**.
 - Gana quien **hunda los 3 barcos del oponente**.
 
+=== ESTAMOS JUGANDO BATALLA NAVAL ===
+
+  0 1 2 3 4
+0 ❓ ❓ ❓ ❓ ❓
+1 ❓ ❓ ❓ ❓ ❓
+2 ❓ ❓ ❓ ❓ ❓
+3 ❓ ❓ ❓ ❓ ❓
+4 ❓ ❓ ❓ ❓ ❓
+
+🃏 Número de intentos usados: 0
+
+Ingresa la fila para atacar (0-4): 0
+Ingresa la columna para atacar (0-4): 0
+¡Impacto! Hundiste un barco enemigo.
+
+
 ### **Problema 2: Triqui y Juego de Memoria** ❌⭕🃏
 El usuario puede elegir entre:
 - **Triqui (Tic-Tac-Toe):**
@@ -84,6 +100,156 @@ El usuario puede elegir entre:
 ├── rummy.py # Código de Rummy
 └── pseudocodigo.md # Pseudocódigo del problema 5
 ```
+======================================================================
+## ==============================JUEGOS==============================
+======================================================================
+```
+=== ESTAMOS JUGANDO BATALLA NAVAL ===
+
+===== REGLAS DE BATALLA NAVAL =====
+- Tablero de 5x5, cada jugador tiene 3 barcos.
+- La máquina coloca sus barcos aleatoriamente.
+- Tú debes ingresar las coordenadas de tus barcos.
+- En cada turno, atacas una posición e intentas hundir los barcos enemigos.
+- Gana quien hunda primero los 3 barcos del oponente.
+===================================
+
+  0 1 2 3 4
+0
+1
+2
+3
+4
+
+🃏 Número de intentos usados: 0
+
+Ingresa la fila para atacar (0-4):
+======================================================================
+
+=== ESTAMOS JUGANDO TRIQUI ===
+
+===== REGLAS DE TRIQUI =====
+- Juego en un tablero de 3x3.
+- Dos jugadores: Tú (X) vs Máquina (O).
+- Gana quien complete una fila, columna o diagonal con su símbolo.
+- Si el tablero se llena y no hay ganador, es un empate.
+===================================
+
+    0   1   2
+  -------------
+0 |   | ⭕ |   |
+  -------------
+1 |   |   |   |
+  -------------
+2 |   |   |   |
+  -------------
+Ingresa la fila (0-2):
+```
+======================================================================
+```
+======================
+   🎴 JUEGO DE MEMORIA 🎴
+======================
+
+  0 1 2 3 4
+0 ❓ ❓ ❓ ❓ ❓
+1 ❓ ❓ ❓ 🥕 ❓
+2 ❓ ❓ ❓ ❓ ❓
+3 ❓ ❓ ❓ ❓ ❓
+4 ❓ 🌽 ❓ ❓ ❓
+5 ❓ ❓ ❓ ❓ ❓
+
+🤖 La máquina falló. Se vuelven a tapar.
+🃏 Número de intentos usados: 1
+
+  0 1 2 3 4
+0 ❓ ❓ ❓ ❓ ❓
+1 ❓ ❓ ❓ ❓ ❓
+2 ❓ ❓ ❓ ❓ ❓
+3 ❓ ❓ ❓ ❓ ❓
+4 ❓ ❓ ❓ ❓ ❓
+5 ❓ ❓ ❓ ❓ ❓
+
+Tu turno: Elige dos cartas para destapar.
+Ingresa la fila de la primera carta (0-5): 0
+Ingresa la columna de la primera carta (0-4): 0
+Ingresa la fila de la segunda carta (0-5): 0
+Ingresa la columna de la segunda carta (0-4): 1
+```
+======================================================================
+```
+=== ESTAMOS JUGANDO SUDOKU ===
+
+===== REGLAS DE SUDOKU =====
+- Se elige aleatoriamente un tablero de Sudoku 9x9 incompleto.
+- Debes completar los espacios vacíos con números del 1 al 9.
+- No puede haber números repetidos en filas ni columnas.
+- Ganas si completas correctamente el tablero.
+===================================
+
+    0   1   2   3   4   5   6   7   8
+  ------------------------------------
+0 |   | 5 | 1 | 4 | 6 |   | 4 | 9 | 5 |
+  ------------------------------------
+1 |   |   | 1 | 9 | 8 |   |   |   | 6 |
+  ------------------------------------
+2 |   | 2 |   |   | 1 |   |   |   |   |
+  ------------------------------------
+3 |   |   | 2 | 9 | 7 |   | 5 | 9 |   |
+  ------------------------------------
+4 |   |   |   | 3 | 6 |   |   | 6 |   |
+  ------------------------------------
+5 |   | 3 | 2 |   | 9 | 8 | 3 |   | 7 |
+  ------------------------------------
+6 | 7 | 3 | 5 |   |   | 6 |   | 4 | 6 |
+  ------------------------------------
+7 | 7 | 7 | 7 | 8 |   |   | 1 |   |   |
+  ------------------------------------
+8 | 9 | 9 | 5 | 5 |   |   |   |   | 7 |
+  ------------------------------------
+Ingresa la fila (0-8):
+```
+======================================================================
+```
+=== ESTAMOS JUGANDO BLACK JACK ===
+
+=== RONDA #1 ===
+Rondas jugadas: 0
+
+=========================== REGLAS DE BLACK JACK ===========================
+- Se juega con un mazo estándar de 52 cartas.
+- El objetivo es llegar a 21 puntos o lo más cerca posible sin pasarse.
+- Cada jugador empieza con 50 créditos y apuesta hasta 10 créditos por ronda.
+- Gana quien llegue primero a 100 créditos.
+- Historial de Rondas: G (Ganada) y P (Perdida).
+===============================================================================
+
+=== JUGUEMOS ===
+Tienes Créditos 50.
+¿Cuántos créditos deseas apostar? (Máximo 10)
+Ingresa tu apuesta: 10
+Tu mano: ['7', 'K'], Puntaje: 17
+¿Deseas otra carta? (s/n):
+```
+======================================================================
+```
+=== ESTAMOS JUGANDO RUMMY ===
+
+=== MANO #1 ===
+
+===== REGLAS DE RUMMY =====
+- Se usa un mazo estándar de 52 cartas.
+- Cada jugador recibe 3 cartas al inicio.
+- En cada turno, puedes robar una carta y descartar una.
+- Gana quien forme un trío de cartas del mismo valor primero.
+===================================
+
+
+Tu mano: ['2', '9', '9']
+Elige una opción: 1. Robar del mazo 2. Descartar una carta
+Opción:
+```
+======================================================================
 
 ## 🚀 Cómo Ejecutar los Juegos
 1. Clona este repositorio:

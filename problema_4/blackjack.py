@@ -11,7 +11,7 @@ def limpiar_pantalla():
 
 # Función para mostrar el título del juego.
 def mostrar_titulo():
-    print("=== ESTAMOS JUGANDO BLACK JACK ===")
+    print("=== === === === === === ESTAMOS JUGANDO BLACK JACK === === === === === ===")
 
 # ======================= BLACK JACK =======================
 # Define las funciones y lógica para jugar Blackjack

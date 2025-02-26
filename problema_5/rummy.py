@@ -11,19 +11,19 @@ def limpiar_pantalla():
 
 # Función para mostrar el título del juego.
 def mostrar_titulo():
-    print("=== ESTAMOS JUGANDO RUMMY ===")
+    print("=== === === === === ESTAMOS JUGANDO RUMMY === === === === ===")
 
 # ======================= RUMMY =======================
 # Funciones y lógica para el juego de Rummy
 
 def mostrar_reglas_rummy():
     # Imprime las reglas del juego en pantalla
-    print("\n===== REGLAS DE RUMMY =====")
+    print("\n===================== REGLAS DE RUMMY =====================")
     print("- Se usa un mazo estándar de 52 cartas.")
     print("- Cada jugador recibe 3 cartas al inicio.")
     print("- En cada turno, puedes robar una carta y descartar una.")
     print("- Gana quien forme un trío de cartas del mismo valor primero.")
-    print("===================================\n")
+    print("==============================================================\n")
 
 def repartir_mano():
     # Define los valores de las cartas y construye un mazo completo (4 de cada valor)

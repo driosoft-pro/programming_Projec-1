@@ -11,7 +11,7 @@ def limpiar_pantalla():
 
 # Función para mostrar el título del juego.
 def mostrar_titulo():
-    print("=== ESTAMOS JUGANDO TRIQUI ===\n")
+    print("=== ESTAMOS JUGANDO TRIQUI ===")
 
 # ======================= TRIQUI (Tic-Tac-Toe) =======================
 # Funciones y lógica del juego Tic-Tac-Toe.

@@ -10,18 +10,18 @@ def limpiar_pantalla():
 
 # Función para mostrar el título del juego.
 def mostrar_titulo():
-    print("=== ESTAMOS JUGANDO SUDOKU ===\n")  # Imprime el título del juego y un salto de línea al final
+    print("=== === === === === ESTAMOS JUGANDO SUDOKU === === === === ===")  # Imprime el título del juego y un salto de línea al final
 
 # ======================= SUDOKU =======================
 # Funciones que implementan la lógica de un juego de Sudoku 9x9.
 
 def mostrar_reglas_sudoku():
-    print("\n===== REGLAS DE SUDOKU =====")  # Imprime el encabezado para las reglas, con un salto de línea inicial
+    print("\n====================== REGLAS DE SUDOKU ======================")  # Imprime el encabezado para las reglas, con un salto de línea inicial
     print("- Se elige aleatoriamente un tablero de Sudoku 9x9 incompleto.")  # Explica que se selecciona un tablero incompleto al azar
     print("- Debes completar los espacios vacíos con números del 1 al 9.")  # Indica que el jugador debe llenar los espacios vacíos con números del 1 al 9
     print("- No puede haber números repetidos en filas ni columnas.")  # Resalta la regla de que no se pueden repetir números en una misma fila o columna
     print("- Ganas si completas correctamente el tablero.")  # Establece la condición de victoria al completar el tablero correctamente
-    print("===================================\n")  # Imprime una línea de cierre para las reglas y agrega un salto de línea
+    print("===============================================================\n")  # Imprime una línea de cierre para las reglas y agrega un salto de línea
 
 def generar_tablero_sudoku():
     tableros = [  # Crea una lista que contiene uno o más tableros

@@ -10,20 +10,20 @@ def limpiar_pantalla():
 
 # Función para mostrar el título del juego.
 def mostrar_titulo():
-    print("=== ESTAMOS JUGANDO BATALLA NAVAL ===")  # Imprime el título del juego y un salto de línea al final
+    print("=== === === === === === ESTAMOS JUGANDO BATALLA NAVAL === === === === === ===")  # Imprime el título del juego y un salto de línea al final
 
 # ======================= BATALLA NAVAL =======================
 # Sección principal que define las funciones y la lógica del juego Batalla Naval.
 
 def mostrar_reglas_batalla_naval():
     # Muestra las reglas del juego en pantalla.
-    print("\n===== REGLAS DE BATALLA NAVAL =====")
+    print("\n======================== REGLAS DE BATALLA NAVAL ========================")
     print("- Tablero de 5x5, cada jugador tiene 3 barcos.")
     print("- La máquina coloca sus barcos aleatoriamente.")
     print("- Tú debes ingresar las coordenadas de tus barcos.")
     print("- En cada turno, atacas una posición e intentas hundir los barcos enemigos.")
     print("- Gana quien hunda primero los 3 barcos del oponente.")
-    print("===================================\n")
+    print("===========================================================================\n")
 
 def crear_tablero():
     # Crea y retorna un tablero vacío de 5x5. Cada celda es un espacio en blanco.
