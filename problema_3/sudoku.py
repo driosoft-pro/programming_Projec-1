@@ -16,82 +16,116 @@ def mostrar_titulo():
 # Funciones que implementan la lógica de un juego de Sudoku 9x9.
 
 def mostrar_reglas_sudoku():
-    print("\n====================== REGLAS DE SUDOKU ======================")  # Imprime el encabezado para las reglas, con un salto de línea inicial
-    print("- Se elige aleatoriamente un tablero de Sudoku 9x9 incompleto.")  # Explica que se selecciona un tablero incompleto al azar
-    print("- Debes completar los espacios vacíos con números del 1 al 9.")  # Indica que el jugador debe llenar los espacios vacíos con números del 1 al 9
-    print("- No puede haber números repetidos en filas ni columnas.")  # Resalta la regla de que no se pueden repetir números en una misma fila o columna
-    print("- Ganas si completas correctamente el tablero.")  # Establece la condición de victoria al completar el tablero correctamente
-    print("===============================================================\n")  # Imprime una línea de cierre para las reglas y agrega un salto de línea
+    # Imprime el encabezado para las reglas de Sudoku, iniciando con salto de línea
+    print("\n====================== REGLAS DE SUDOKU ======================")  # Muestra el título de la sección de reglas
 
+    # Imprime la regla que indica que se selecciona aleatoriamente un tablero incompleto
+    print("- Se elige aleatoriamente un tablero de Sudoku 9x9 incompleto.")  # Explica que el tablero se selecciona de forma aleatoria
+
+    # Imprime la regla que indica que el jugador debe completar los espacios vacíos con números del 1 al 9
+    print("- Debes completar los espacios vacíos con números del 1 al 9.")  # Indica que se deben rellenar los huecos (vacíos)
+
+    # Imprime la regla que prohíbe la repetición de números en las filas y columnas
+    print("- No puede haber números repetidos en filas ni columnas.")  # Resalta que no se pueden repetir números en ninguna fila o columna
+
+    # Imprime la regla que establece como condición de victoria completar correctamente el tablero
+    print("- Ganas si completas correctamente el tablero.")  # Establece el objetivo: completar el tablero siguiendo las reglas
+
+    # Imprime una línea divisoria final y un salto de línea para finalizar la sección de reglas
+    print("===============================================================\n")  # Cierra la sección de reglas
+
+# Define la función generar_tablero_sudoku(), la cual crea un tablero de Sudoku 9x9 incompleto.
 def generar_tablero_sudoku():
-    tableros = [  # Crea una lista que contiene uno o más tableros
-        [[random.randint(1, 9) if random.random() > 0.5 else " " for _ in range(9)] for _ in range(9)]
-        # Para cada uno de los 9 renglones, crea una lista de 9 celdas. Cada celda obtiene un número aleatorio del 1 al 9 
-        # si random.random() genera un número mayor a 0.5; de lo contrario, se deja vacío (" ").
-    ]
-    return random.choice(tableros)  # Selecciona y retorna aleatoriamente uno de los tableros creados en la lista
+    tablero = [[" " for _ in range(9)] for _ in range(9)]  # Crea una matriz 9x9 inicializada con espacios en blanco
+    for i in range(9):  # Itera sobre cada fila del tablero (índice 0 a 8)
+        for j in range(9):  # Itera sobre cada columna de la fila (índice 0 a 8)
+            num = random.randint(1, 9)  # Genera un número aleatorio entre 1 y 9
+            # Repite la generación de 'num' hasta asegurarse de que no se repita en la fila i ni en la columna j
+            while num in tablero[i] or any(row[j] == num for row in tablero):
+                num = random.randint(1, 9)  # Genera un nuevo número aleatorio si ya está en la fila o columna
+            if random.random() > 0.5:  # Con una probabilidad del 50%, se asigna el número a la posición (i, j)
+                tablero[i][j] = num  # Asigna el número generado a la celda (i, j)
+    return tablero  # Retorna el tablero generado
 
+# Define la función imprimir_tablero_sudoku() para mostrar el tablero en consola.
 def imprimir_tablero_sudoku(tablero):
-    print("    " + "   ".join(str(i) for i in range(9)))  # Imprime la cabecera de columnas (0 al 8) con espacios y separadores
+    # Imprime la cabecera de columnas (índices del 0 al 8) con separación
+    print("    " + "   ".join(str(i) for i in range(9)))  # Cabecera con números de columna
     print("  " + "----" * 9)  # Imprime una línea divisoria debajo de la cabecera
-    for i, fila in enumerate(tablero):  # Itera sobre cada fila del tablero, obteniendo su índice y contenido
-        print(f"{i} | " + " | ".join(str(c) for c in fila) + " |")  # Imprime el índice de la fila seguido de sus celdas separadas por barras
-        print("  " + "----" * 9)  # Imprime una línea divisoria después de cada fila
+    for i, fila in enumerate(tablero):  # Itera sobre cada fila del tablero con su índice
+        # Imprime el índice de la fila seguido de las celdas separadas por barras
+        print(f"{i} | " + " | ".join(str(c) for c in fila) + " |")  # Muestra la fila con celdas delimitadas por barras
+        print("  " + "----" * 9)  # Imprime una línea divisoria luego de cada fila
 
+# Define la función verificar_sudoku() que comprueba si el tablero ha sido completado.
 def verificar_sudoku(tablero):
-    for fila in tablero:  # Recorre cada fila del tablero
-        if any(c == " " for c in fila):  # Comprueba si existe alguna celda vacía (" ") en la fila
-            return False  # Si se encuentra una celda vacía, retorna False, indicando que el Sudoku no está completo
-    return True  # Si ninguna fila contiene celdas vacías, retorna True para indicar que el tablero está completo
+    for fila in tablero:  # Itera sobre cada fila del tablero
+        if any(c == " " for c in fila):  # Verifica si existe alguna celda vacía (representada por un espacio)
+            return False  # Si hay un espacio vacío, devuelve False indicando que el tablero no está completo
+    return True  # Si no se encuentran celdas vacías, devuelve True (tablero completo)
 
+# Define la función obtener_entrada_usuario() para solicitar al jugador una jugada válida.
 def obtener_entrada_usuario():
-    while True:  # Bucle que se repite hasta que se ingrese una entrada válida
+    while True:  # Bucle que se repite hasta obtener una entrada válida
         try:
-            fila = int(input("Ingresa la fila (0-8): "))  # Solicita al usuario el número de fila (entre 0 y 8) y lo convierte a entero
-            columna = int(input("Ingresa la columna (0-8): "))  # Solicita el número de columna (entre 0 y 8) y lo convierte a entero
-            numero = int(input("Ingresa un número (1-9): "))  # Solicita el número que se desea colocar (entre 1 y 9) y lo convierte a entero
+            fila = int(input("Ingresa la fila (0-8): "))  # Solicita y convierte la entrada de fila a entero
+            columna = int(input("Ingresa la columna (0-8): "))  # Solicita y convierte la entrada de columna a entero
+            numero = int(input("Ingresa un número (1-9): "))  # Solicita y convierte la entrada del número a entero
             
-            if 0 <= fila <= 8 and 0 <= columna <= 8:  # Verifica que la fila y la columna estén dentro del rango permitido
-                if 1 <= numero <= 9:  # Verifica que el número ingresado esté entre 1 y 9
-                    return fila, columna, numero  # Retorna la entrada válida (fila, columna, número)
+            if 0 <= fila <= 8 and 0 <= columna <= 8:  # Verifica que fila y columna estén dentro del rango permitido
+                if 1 <= numero <= 9:  # Verifica que el número esté dentro del rango permitido (1-9)
+                    return fila, columna, numero  # Retorna la entrada válida (fila, columna y número)
                 else:
-                    print("Error: El número debe estar entre 1 y 9. Intenta de nuevo.")  # Muestra error si el número no está en el rango permitido
+                    print("Error: El número debe estar entre 1 y 9. Intenta de nuevo.")  # Mensaje de error para número incorrecto
             else:
-                print("Error: La fila y columna deben estar entre 0 y 8. Intenta de nuevo.")  # Muestra error si la fila o columna no están en el rango permitido
+                print("Error: La fila y columna deben estar entre 0 y 8. Intenta de nuevo.")  # Mensaje de error si fila o columna están fuera de rango
         except ValueError:
-            print("Error: Entrada inválida. Debes ingresar números enteros. Intenta de nuevo.")  # Muestra error si la entrada no es convertible a entero
+            # Captura error si la entrada no es convertible a entero y muestra un mensaje
+            print("Error: Entrada inválida. Debes ingresar números enteros. Intenta de nuevo.")
         except KeyboardInterrupt:
-            print("\nHas abandonado el juego.")  # Muestra un mensaje si el usuario interrumpe el juego con Ctrl+C
-            exit()  # Termina la ejecución del programa
+            # Captura si el usuario interrumpe la ejecución (Ctrl+C) y finaliza el juego
+            print("\nHas abandonado el juego.")
+            exit()
 
+# Define la función jugar_sudoku() que contiene la lógica principal del juego.
 def jugar_sudoku():
-    mostrar_reglas_sudoku()  # Muestra las reglas del Sudoku al iniciar el juego
-    tablero = generar_tablero_sudoku()  # Genera un tablero de Sudoku 9x9 incompleto aleatoriamente
+    mostrar_reglas_sudoku()  # Llama a la función que muestra las reglas del Sudoku
+    tablero = generar_tablero_sudoku()  # Genera un tablero de Sudoku aleatorio e incompleto
     
-    while not verificar_sudoku(tablero):  # Mientras el tablero no esté completo, se continúa solicitando entradas
+    # Mientras el tablero no esté completo, sigue solicitando entradas al usuario
+    while not verificar_sudoku(tablero):
         limpiar_pantalla()  # Limpia la pantalla para refrescar la vista del juego
         mostrar_titulo()  # Muestra el título del juego
-        mostrar_reglas_sudoku()  # Vuelve a mostrar las reglas para recordarle al jugador las reglas del juego
+        mostrar_reglas_sudoku()  # Vuelve a mostrar las reglas de Sudoku
         imprimir_tablero_sudoku(tablero)  # Imprime el estado actual del tablero
         
-        while True:  # Bucle interno para continuar solicitando una jugada válida en la celda seleccionada
+        while True:  # Bucle interno para solicitar al jugador una jugada válida
             try:
-                fila, columna, numero = obtener_entrada_usuario()  # Obtiene la entrada del usuario (fila, columna, número)
-                if tablero[fila][columna] == " ":  # Verifica si la celda elegida está vacía
-                    tablero[fila][columna] = numero  # Actualiza la celda del tablero con el número ingresado
-                    break  # Sale del bucle interno después de haber realizado una jugada exitosa
+                fila, columna, numero = obtener_entrada_usuario()  # Obtiene la entrada del usuario
+                if tablero[fila][columna] == " ":  # Comprueba si la celda seleccionada está vacía
+                    # Verifica si el número ingresado no se repite en la fila ni en la columna
+                    if numero not in tablero[fila] and all(row[columna] != numero for row in tablero):
+                        tablero[fila][columna] = numero  # Asigna el número a la celda seleccionada
+                        break  # Sale del bucle interno tras una jugada exitosa
+                    else:
+                        # Informa al usuario que no puede repetir números en la misma fila o columna
+                        print("Error: No puedes repetir números en la misma fila o columna. Intenta de nuevo.")
                 else:
-                    print("Error: La celda ya está ocupada. Intenta de nuevo.")  # Muestra error si la celda ya contiene un valor
+                    # Informa al jugador que la celda ya ha sido ocupada
+                    print("Error: La celda ya está ocupada. Intenta de nuevo.")
             except Exception as e:
-                print(f"Error inesperado: {e}. Intenta de nuevo.")  # Maneja y muestra errores inesperados durante la entrada
+                # Captura cualquier error inesperado y lo muestra
+                print(f"Error inesperado: {e}. Intenta de nuevo.")
     
-    limpiar_pantalla()  # Una vez completado el tablero, limpia la pantalla para la etapa final
-    mostrar_titulo()  # Muestra el título del juego nuevamente
-    imprimir_tablero_sudoku(tablero)  # Imprime el tablero completo ya finalizado
-    print("\n¡Felicidades, completaste el Sudoku!")  # Muestra un mensaje de felicitación al jugador por completar el Sudoku
+    limpiar_pantalla()  # Limpia la pantalla una vez completado el tablero
+    mostrar_titulo()  # Muestra nuevamente el título del juego
+    imprimir_tablero_sudoku(tablero)  # Imprime el tablero completo final
+    print("\n¡Felicidades, completaste el Sudoku!")  # Muestra un mensaje de felicitación
 
-if __name__ == "__main__":  # Verifica si el script se está ejecutando como programa principal
+# Si el script es ejecutado directamente, inicia el juego de Sudoku.
+if __name__ == "__main__":
     try:
-        jugar_sudoku()  # Llama a la función principal para iniciar el juego de Sudoku
+        jugar_sudoku()  # Llama a la función principal para comenzar el juego
     except KeyboardInterrupt:
-        print("\nHas abandonado el juego.")  # Captura la interrupción por teclado (Ctrl+C) durante la ejecución y muestra un mensaje
+        # Si se interrumpe la ejecución (Ctrl+C), muestra un mensaje de salida
+        print("\nHas abandonado el juego.")
